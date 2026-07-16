@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { font-family:'Ubuntu','Noto Sans','DejaVu Sans',sans-serif; -webkit-font-smoothing:antialiased; }
+.stage { position:relative; overflow:hidden; }
+.mark { background:linear-gradient(135deg,#6366f1,#8b5cf6); display:grid; place-items:center; border-radius:22%; }
+.grad-text { background:linear-gradient(135deg,#6366f1,#8b5cf6); -webkit-background-clip:text; background-clip:text; color:transparent; }
+/* --- popup mock --- */
+.popup { width:384px; background:#fff; border-radius:20px; overflow:hidden;
+  box-shadow:0 40px 90px rgba(60,50,140,.28), 0 8px 24px rgba(60,50,140,.14); border:1px solid rgba(20,20,50,.06); }
+.pv-top { display:flex; align-items:center; gap:10px; padding:15px 16px; background:linear-gradient(135deg,#6366f1,#8b5cf6); color:#fff; }
+.pv-top .m { width:32px; height:32px; border-radius:9px; background:rgba(255,255,255,.2); display:grid; place-items:center; }
+.pv-top .m svg { width:18px; height:18px; }
+.pv-top strong { font-size:16px; display:block; }
+.pv-top small { font-size:11px; opacity:.85; }
+.pv-plus { margin-left:auto; width:34px; height:34px; border-radius:9px; background:rgba(255,255,255,.22); display:grid; place-items:center; color:#fff; font-size:20px; font-weight:300; }
+.pv-search { display:flex; align-items:center; gap:8px; padding:11px 14px; border-bottom:1px solid #eceef2; color:#9aa1b1; font-size:13px; }
+.pv-search .box { flex:1; }
+.pv-search .fav { width:30px; height:28px; border-radius:8px; background:#f1f2f6; display:grid; place-items:center; color:#c9ccd6; }
+.card { margin:9px 10px; padding:12px 13px; border:1px solid #eceef2; border-radius:13px; }
+.card.hot { border-color:#c7c3f7; box-shadow:0 3px 14px rgba(99,102,241,.12); }
+.card .t { display:flex; align-items:center; gap:8px; }
+.card .t b { font-size:14px; color:#1f2430; flex:1; }
+.card .t .star { color:#f59e0b; font-size:16px; }
+.card .t .star.off { color:#d3d6de; }
+.card .d { font-size:12.5px; color:#6b7280; line-height:1.5; margin:6px 0 9px;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.card .meta { display:flex; align-items:center; gap:6px; }
+.badge { font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; background:rgba(99,102,241,.12); color:#6366f1; }
+.tag { font-size:10.5px; padding:2px 8px; border-radius:999px; background:#f1f2f6; color:#7b8090; }
+.date { font-size:10.5px; color:#9aa1b1; margin-left:auto; }
+.acts { display:flex; gap:6px; margin-top:10px; padding-top:9px; border-top:1px solid #eceef2; }
+.acts span { flex:1; text-align:center; font-size:11.5px; font-weight:600; color:#6b7280; background:#f4f5f8; border-radius:8px; padding:6px 0; }
+.acts span.c { background:linear-gradient(135deg,#6366f1,#8b5cf6); color:#fff; }
+
+html,body{width:1280px;height:800px;}
+.stage{width:1280px;height:800px;}
+
+.bg{position:absolute;inset:0;background:linear-gradient(160deg,#f7f8fd,#eef0fb);}
+.cap{position:absolute;left:90px;top:70px;font-size:26px;color:#3a3550;max-width:760px;line-height:1.4;}
+.cap b{color:#4c46c9;}
+.doc{position:absolute;left:90px;top:200px;right:90px;background:#fff;border-radius:18px;padding:44px 54px;box-shadow:0 24px 60px rgba(60,50,120,.14);border:1px solid #eceef2;}
+.doc p{font-size:21px;line-height:1.65;color:#3a3f4d;margin-bottom:18px;}
+.sel{background:#b7c6ff;color:#10204a !important;display:inline;padding:2px 0;box-shadow:6px 0 0 #b7c6ff,-6px 0 0 #b7c6ff;}
+.menu{position:absolute;left:60px;top:210px;width:290px;background:#fff;border-radius:12px;padding:7px;box-shadow:0 22px 50px rgba(20,20,50,.28);border:1px solid #e6e8ee;}
+.mi{padding:10px 14px;font-size:15px;color:#3a3f4d;border-radius:8px;display:flex;align-items:center;gap:10px;}
+.mi.hot{background:linear-gradient(135deg,#eef0ff,#f3edff);color:#4c46c9;font-weight:700;}
+.mm{width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:grid;place-items:center;}
+.mm svg{width:14px;height:14px;}
+
+</style></head><body><div class="stage">
+  <div class="bg"></div>
+  <div class="cap"><b>Right-click to save anything.</b> Select text on any page and store it as a prompt instantly.</div>
+  <div class="doc">
+    <p>System prompt for the research agent:</p>
+    <p class="sel">You are a meticulous research analyst. For every claim, cite a primary source, flag uncertainty explicitly, and never fabricate references.</p>
+    <div class="menu">
+      <div class="mi">Copy</div>
+      <div class="mi">Search the web</div>
+      <div class="mi hot"><span class="mm"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></span> Save selection as prompt</div>
+      <div class="mi">Print…</div>
+      <div class="mi">Inspect</div>
+    </div>
+  </div>
+</div></body></html>

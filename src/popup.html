@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PromptVault</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </span>
+      <div class="brand-text">
+        <strong>PromptVault</strong>
+        <span id="count" class="count">0 prompts</span>
+      </div>
+    </div>
+    <button id="addBtn" class="icon-btn primary" title="Add a prompt">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </header>
+
+  <div class="searchbar">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input id="search" type="search" placeholder="Search prompts, tags, sources…" autocomplete="off" />
+    <button id="favFilter" class="chip" title="Show favorites only">★</button>
+  </div>
+
+  <main id="list" class="list"></main>
+
+  <!-- Empty state -->
+  <div id="empty" class="empty hidden">
+    <div class="empty-art">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <h2>No prompts yet</h2>
+    <p>Save prompts with the button on any AI chat, right-click any selected text, or add one here.</p>
+    <button id="emptyAdd" class="btn primary">Add your first prompt</button>
+  </div>
+
+  <!-- Editor -->
+  <div id="editor" class="editor hidden">
+    <div class="editor-head">
+      <button id="backBtn" class="icon-btn ghost" title="Back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <h2 id="editorTitle">Add prompt</h2>
+    </div>
+    <div class="editor-body">
+      <label for="fTitle">Title</label>
+      <input id="fTitle" type="text" maxlength="120" placeholder="e.g. Blog outline generator" />
+
+      <label for="fText">Prompt</label>
+      <textarea id="fText" placeholder="Write or paste your prompt…"></textarea>
+
+      <label for="fTags">Tags <span class="hint">comma separated</span></label>
+      <input id="fTags" type="text" placeholder="writing, seo, code" />
+
+      <label for="fUrl">Source link <span class="hint">optional</span></label>
+      <input id="fUrl" type="url" placeholder="https://…" />
+
+      <div class="editor-actions">
+        <button id="cancelBtn" class="btn ghost">Cancel</button>
+        <button id="saveBtn" class="btn primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <button id="exportBtn" class="link-btn" title="Download all prompts as JSON">Export</button>
+    <span class="dot">·</span>
+    <button id="importBtn" class="link-btn" title="Import prompts from JSON">Import</button>
+    <input id="importFile" type="file" accept="application/json,.json" hidden />
+    <span class="spacer"></span>
+    <span class="version">v1.0.0</span>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

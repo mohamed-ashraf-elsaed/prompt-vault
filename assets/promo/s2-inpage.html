@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { font-family:'Ubuntu','Noto Sans','DejaVu Sans',sans-serif; -webkit-font-smoothing:antialiased; }
+.stage { position:relative; overflow:hidden; }
+.mark { background:linear-gradient(135deg,#6366f1,#8b5cf6); display:grid; place-items:center; border-radius:22%; }
+.grad-text { background:linear-gradient(135deg,#6366f1,#8b5cf6); -webkit-background-clip:text; background-clip:text; color:transparent; }
+/* --- popup mock --- */
+.popup { width:384px; background:#fff; border-radius:20px; overflow:hidden;
+  box-shadow:0 40px 90px rgba(60,50,140,.28), 0 8px 24px rgba(60,50,140,.14); border:1px solid rgba(20,20,50,.06); }
+.pv-top { display:flex; align-items:center; gap:10px; padding:15px 16px; background:linear-gradient(135deg,#6366f1,#8b5cf6); color:#fff; }
+.pv-top .m { width:32px; height:32px; border-radius:9px; background:rgba(255,255,255,.2); display:grid; place-items:center; }
+.pv-top .m svg { width:18px; height:18px; }
+.pv-top strong { font-size:16px; display:block; }
+.pv-top small { font-size:11px; opacity:.85; }
+.pv-plus { margin-left:auto; width:34px; height:34px; border-radius:9px; background:rgba(255,255,255,.22); display:grid; place-items:center; color:#fff; font-size:20px; font-weight:300; }
+.pv-search { display:flex; align-items:center; gap:8px; padding:11px 14px; border-bottom:1px solid #eceef2; color:#9aa1b1; font-size:13px; }
+.pv-search .box { flex:1; }
+.pv-search .fav { width:30px; height:28px; border-radius:8px; background:#f1f2f6; display:grid; place-items:center; color:#c9ccd6; }
+.card { margin:9px 10px; padding:12px 13px; border:1px solid #eceef2; border-radius:13px; }
+.card.hot { border-color:#c7c3f7; box-shadow:0 3px 14px rgba(99,102,241,.12); }
+.card .t { display:flex; align-items:center; gap:8px; }
+.card .t b { font-size:14px; color:#1f2430; flex:1; }
+.card .t .star { color:#f59e0b; font-size:16px; }
+.card .t .star.off { color:#d3d6de; }
+.card .d { font-size:12.5px; color:#6b7280; line-height:1.5; margin:6px 0 9px;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.card .meta { display:flex; align-items:center; gap:6px; }
+.badge { font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; background:rgba(99,102,241,.12); color:#6366f1; }
+.tag { font-size:10.5px; padding:2px 8px; border-radius:999px; background:#f1f2f6; color:#7b8090; }
+.date { font-size:10.5px; color:#9aa1b1; margin-left:auto; }
+.acts { display:flex; gap:6px; margin-top:10px; padding-top:9px; border-top:1px solid #eceef2; }
+.acts span { flex:1; text-align:center; font-size:11.5px; font-weight:600; color:#6b7280; background:#f4f5f8; border-radius:8px; padding:6px 0; }
+.acts span.c { background:linear-gradient(135deg,#6366f1,#8b5cf6); color:#fff; }
+
+html,body{width:1280px;height:800px;}
+.stage{width:1280px;height:800px;}
+
+.chatbg{position:absolute;inset:0;background:#f2f3f7;}
+.topbar{height:44px;background:#fff;border-bottom:1px solid #e6e8ee;display:flex;align-items:center;gap:8px;padding:0 16px;}
+.topbar span{width:12px;height:12px;border-radius:50%;}
+.dotr{background:#ff5f57;}.doty{background:#febc2e;}.dotg{background:#28c840;}
+.url{margin-left:14px;background:#f0f1f5;border-radius:8px;padding:5px 16px;font-size:13px;color:#8a8f9c;flex:1;max-width:420px;}
+.chat{padding:36px 90px;}
+.row{display:flex;margin-bottom:20px;}
+.row.user{justify-content:flex-end;}
+.bub{max-width:560px;padding:14px 18px;border-radius:16px;font-size:16px;line-height:1.5;background:#6366f1;color:#fff;}
+.bub.ai{background:#fff;color:#2b2f3a;border:1px solid #e6e8ee;}
+.row.ai{gap:12px;align-items:flex-start;}
+.av{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#10a37f,#0e8f6f);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:700;flex:none;}
+.composer{margin:40px 0 0;background:#fff;border:1px solid #e0e2ea;border-radius:16px;padding:18px 20px;font-size:16px;color:#9aa0ad;display:flex;align-items:center;box-shadow:0 6px 20px rgba(40,40,80,.06);}
+.send{margin-left:auto;color:#c7cad3;}
+.cap{position:absolute;left:90px;bottom:46px;font-size:19px;color:#3a3550;background:rgba(255,255,255,.82);backdrop-filter:blur(4px);padding:14px 20px;border-radius:14px;box-shadow:0 8px 24px rgba(60,50,120,.12);max-width:640px;}
+.cap b{color:#4c46c9;}
+.fab{position:absolute;right:40px;bottom:40px;width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:grid;place-items:center;box-shadow:0 10px 28px rgba(79,70,229,.5);}
+.fab svg{width:28px;height:28px;}
+.panel{position:absolute;right:40px;bottom:112px;width:380px;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 34px 80px rgba(50,40,120,.32);border:1px solid rgba(20,20,50,.06);}
+.ph{display:flex;align-items:center;gap:9px;padding:15px 17px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-size:15px;}
+.ph svg{width:20px;height:20px;}.ph b{flex:1;}.ph .x{opacity:.85;}
+.pb{padding:16px 17px;}
+.lbl{font-size:11px;font-weight:700;letter-spacing:.5px;color:#8a8f9c;margin:0 0 6px;}
+.inp{border:1px solid #e2e5ec;border-radius:10px;padding:11px 12px;font-size:14px;color:#1f2430;margin-bottom:14px;background:#fafbfc;}
+.ta{border:1.5px solid #8b5cf6;border-radius:10px;padding:11px 12px;font-size:13.5px;color:#33384a;line-height:1.5;background:#fff;box-shadow:0 0 0 3px rgba(139,92,246,.12);}
+.src{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#7b8090;background:#f3f4f6;border-radius:9px;padding:9px 11px;margin:14px 0;}
+.pact{display:flex;gap:9px;}
+.pact span{flex:1;text-align:center;font-size:13px;font-weight:700;padding:11px 0;border-radius:10px;background:#f1f2f6;color:#5a6070;}
+.pact span.c{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;}
+
+</style></head><body><div class="stage">
+  <div class="chatbg">
+    <div class="topbar"><span class="dotr"></span><span class="doty"></span><span class="dotg"></span><div class="url">chatgpt.com</div></div>
+    <div class="chat">
+      <div class="row user"><div class="bub">Help me write a launch thread for my new extension.</div></div>
+      <div class="row ai"><div class="av">AI</div><div class="bub ai">Absolutely — here's a 6-tweet thread you can tweak…</div></div>
+      <div class="composer">Message… <span class="send">➤</span></div>
+    </div>
+  </div>
+  <div class="cap"><b>Save without leaving the chat.</b> A floating button on every AI site captures the prompt in one click.</div>
+  <div class="fab"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+  
+<div class="panel">
+  <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><b>Save prompt</b><span class="x">✕</span></div>
+  <div class="pb">
+    <div class="lbl">TITLE</div>
+    <div class="inp">Product launch tweet thread</div>
+    <div class="lbl">PROMPT</div>
+    <div class="ta">Write a punchy 6-tweet launch thread for a new Chrome extension. Hook in tweet 1, one benefit per tweet, casual founder voice, end with a CTA to install…</div>
+    <div class="src">🔗 Source: chatgpt.com</div>
+    <div class="pact"><span>Cancel</span><span class="c">Save prompt</span></div>
+  </div>
+</div>
+</div></body></html>

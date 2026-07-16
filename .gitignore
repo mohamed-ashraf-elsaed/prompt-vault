@@ -1,0 +1,9 @@
+# Build artifact (regenerate with ./build.sh)
+promptvault.zip
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
