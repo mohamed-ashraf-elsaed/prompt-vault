@@ -85,3 +85,7 @@ No remote code. No `<all_urls>`. No `tabs`/`scripting`/`cookies`.
 ## 📄 License
 
 MIT — do what you like. See notice in individual files.
+
+## Author
+
+Made by [Mohamed Ashraf Elsaed](https://mohamedashrafelsaed.com), technical lead and backend architect in Cairo. Project page and more tools: [mohamedashrafelsaed.com/projects/prompt-vault/](https://mohamedashrafelsaed.com/projects/prompt-vault/).
