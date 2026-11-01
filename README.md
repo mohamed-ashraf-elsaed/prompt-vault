@@ -60,8 +60,8 @@ zip -r promptvault.zip manifest.json src icons -x ".*"
 Then upload `promptvault.zip` at the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole) and fill in the fields from [`store/STORE_LISTING.md`](store/STORE_LISTING.md).
 
 **Live links** (GitHub Pages):
-- Homepage: https://mohamed-ashraf-elsaed.github.io/prompt-vault/
-- Privacy policy: https://mohamed-ashraf-elsaed.github.io/prompt-vault/privacy.html
+- Homepage: https://prompt-vault.mohamedashrafelsaed.com/
+- Privacy policy: https://prompt-vault.mohamedashrafelsaed.com/privacy.html
 - Support: https://github.com/mohamed-ashraf-elsaed/prompt-vault/issues
 
 ## 🎨 Regenerating assets

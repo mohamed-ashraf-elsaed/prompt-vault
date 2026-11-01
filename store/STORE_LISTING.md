@@ -112,7 +112,7 @@ English (United States)
 - **Official URL:** *None* (unless you register the domain in Google Search Console).
 - **Homepage URL:**
   ```
-  https://mohamed-ashraf-elsaed.github.io/prompt-vault/
+  https://prompt-vault.mohamedashrafelsaed.com/
   ```
 - **Support URL:**
   ```
@@ -192,7 +192,7 @@ Leave every category unchecked:
 ### Privacy policy URL
 > Hosted on GitHub Pages (source: `docs/privacy.html`). Paste this in:
 ```
-https://mohamed-ashraf-elsaed.github.io/prompt-vault/privacy.html
+https://prompt-vault.mohamedashrafelsaed.com/privacy.html
 ```
 
 ---
